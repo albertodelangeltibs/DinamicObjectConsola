@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FacturacionElectronicaService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://172.25.106.110/Chubb.Facturacion/FacturacionElectronicaService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://172.25.106.110/Chubb.Facturacion/FacturacionElectronicaService.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/ACE.Framework.CrossCutting.Exceptions.FaultContracts" />
+      <xsd:import schemaLocation="http://172.25.106.110/Chubb.Facturacion/FacturacionElectronicaService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://172.25.106.110/Chubb.Facturacion/FacturacionElectronicaService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.DataContracts" />
+      <xsd:import schemaLocation="http://172.25.106.110/Chubb.Facturacion/FacturacionElectronicaService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://172.25.106.110/Chubb.Facturacion/FacturacionElectronicaService.svc?xsd=xsd5" namespace="http://schemas.datacontract.org/2004/07/ACE.Framework.CrossCutting.Exceptions" />
+      <xsd:import schemaLocation="http://172.25.106.110/Chubb.Facturacion/FacturacionElectronicaService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.MessageContracts" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="GenerarFacturaReq">
+    <wsdl:part name="parameters" element="tns:GenerarFacturaReq" />
+  </wsdl:message>
+  <wsdl:message name="GenerarFacturaRes">
+    <wsdl:part name="parameters" element="tns:GenerarFacturaRes" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_GenerarFactura_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/ACE.Framework.CrossCutting.Exceptions.FaultContracts" name="detail" element="q1:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarFacturaPorPolizaReq">
+    <wsdl:part name="parameters" element="tns:ConsultarFacturaPorPolizaReq" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarFacturaPorPolizaRes">
+    <wsdl:part name="parameters" element="tns:ConsultarFacturaPorPolizaRes" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_ConsultaFacturaPorPoliza_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/ACE.Framework.CrossCutting.Exceptions.FaultContracts" name="detail" element="q2:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarFacturasReq">
+    <wsdl:part name="parameters" element="tns:ConsultarFacturasReq" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarFacturasRes">
+    <wsdl:part name="parameters" element="tns:ConsultarFacturasRes" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_ConsultarFacturas_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/ACE.Framework.CrossCutting.Exceptions.FaultContracts" name="detail" element="q3:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="CancelarFacturaReq">
+    <wsdl:part name="parameters" element="tns:CancelarFacturaReq" />
+  </wsdl:message>
+  <wsdl:message name="CancelarFacturaRes">
+    <wsdl:part name="parameters" element="tns:CancelarFacturaRes" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_CancelarFactura_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/ACE.Framework.CrossCutting.Exceptions.FaultContracts" name="detail" element="q4:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_ListarCompanias_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCompanias" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_ListarCompanias_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarCompaniasResponse" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_ListarCompanias_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/ACE.Framework.CrossCutting.Exceptions.FaultContracts" name="detail" element="q5:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_ListarEquivalenciasSistemas_InputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEquivalenciasSistemas" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_ListarEquivalenciasSistemas_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ListarEquivalenciasSistemasResponse" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_ListarEquivalenciasSistemas_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q6="http://schemas.datacontract.org/2004/07/ACE.Framework.CrossCutting.Exceptions.FaultContracts" name="detail" element="q6:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ListarFacturaGenericaReq">
+    <wsdl:part name="parameters" element="tns:ListarFacturaGenericaReq" />
+  </wsdl:message>
+  <wsdl:message name="ListarFacturaGenericaRes">
+    <wsdl:part name="parameters" element="tns:ListarFacturaGenericaRes" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_ObtenerFacturaGenerica_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q7="http://schemas.datacontract.org/2004/07/ACE.Framework.CrossCutting.Exceptions.FaultContracts" name="detail" element="q7:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerFacturaReq">
+    <wsdl:part name="parameters" element="tns:ObtenerFacturaReq" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerFacturaRes">
+    <wsdl:part name="parameters" element="tns:ObtenerFacturaRes" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_ObtenerFactura_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q8="http://schemas.datacontract.org/2004/07/ACE.Framework.CrossCutting.Exceptions.FaultContracts" name="detail" element="q8:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDetalleFacturaReq">
+    <wsdl:part name="parameters" element="tns:ObtenerDetalleFacturaReq" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDetalleFacturaRes">
+    <wsdl:part name="parameters" element="tns:ObtenerDetalleFacturaRes" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_ObtenerDetalleFactura_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q9="http://schemas.datacontract.org/2004/07/ACE.Framework.CrossCutting.Exceptions.FaultContracts" name="detail" element="q9:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarFacturaReq">
+    <wsdl:part name="parameters" element="tns:ConsultarFacturaReq" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarFacturaRes">
+    <wsdl:part name="parameters" element="tns:ConsultarFacturaRes" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_ConsultarFactura_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q10="http://schemas.datacontract.org/2004/07/ACE.Framework.CrossCutting.Exceptions.FaultContracts" name="detail" element="q10:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ListarFormaPagoReq">
+    <wsdl:part name="parameters" element="tns:ListarFormaPagoReq" />
+  </wsdl:message>
+  <wsdl:message name="ListarFormaPagoRes">
+    <wsdl:part name="parameters" element="tns:ListarFormaPagoRes" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_ListarFormaPago_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q11="http://schemas.datacontract.org/2004/07/ACE.Framework.CrossCutting.Exceptions.FaultContracts" name="detail" element="q11:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ListarMetodoPagoReq">
+    <wsdl:part name="parameters" element="tns:ListarMetodoPagoReq" />
+  </wsdl:message>
+  <wsdl:message name="ListarMetodoPagoRes">
+    <wsdl:part name="parameters" element="tns:ListarMetodoPagoRes" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_ListarMetodoPago_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q12="http://schemas.datacontract.org/2004/07/ACE.Framework.CrossCutting.Exceptions.FaultContracts" name="detail" element="q12:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ListarUsoCFDIReq">
+    <wsdl:part name="parameters" element="tns:ListarUsoCFDIReq" />
+  </wsdl:message>
+  <wsdl:message name="ListarUsoCFDIRes">
+    <wsdl:part name="parameters" element="tns:ListarUsoCFDIRes" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_ListarUsoCFDI_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q13="http://schemas.datacontract.org/2004/07/ACE.Framework.CrossCutting.Exceptions.FaultContracts" name="detail" element="q13:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarTipoFacturaReq">
+    <wsdl:part name="parameters" element="tns:ConsultarTipoFacturaReq" />
+  </wsdl:message>
+  <wsdl:message name="ConsultarTipoFacturaRes">
+    <wsdl:part name="parameters" element="tns:ConsultarTipoFacturaRes" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_ConsultarTipoFactura_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q14="http://schemas.datacontract.org/2004/07/ACE.Framework.CrossCutting.Exceptions.FaultContracts" name="detail" element="q14:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarDocumentosRelacionadosReq">
+    <wsdl:part name="parameters" element="tns:ActualizarDocumentosRelacionadosReq" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarDocumentosRelacionadosRes">
+    <wsdl:part name="parameters" element="tns:ActualizarDocumentosRelacionadosRes" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_ActualizarDocumentosRelacionados_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q15="http://schemas.datacontract.org/2004/07/ACE.Framework.CrossCutting.Exceptions.FaultContracts" name="detail" element="q15:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerRfcReceptorReq">
+    <wsdl:part name="parameters" element="tns:ObtenerRfcReceptorReq" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerRfcReceptorRes">
+    <wsdl:part name="parameters" element="tns:ObtenerRfcReceptorRes" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_ObtenerRfcReceptor_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q16="http://schemas.datacontract.org/2004/07/ACE.Framework.CrossCutting.Exceptions.FaultContracts" name="detail" element="q16:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDescripcionClaveProdServReq">
+    <wsdl:part name="parameters" element="tns:ObtenerDescripcionClaveProdServReq" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDescripcionClaveProdServRes">
+    <wsdl:part name="parameters" element="tns:ObtenerDescripcionClaveProdServRes" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_ObtenerDescripcionClaveProdServ_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q17="http://schemas.datacontract.org/2004/07/ACE.Framework.CrossCutting.Exceptions.FaultContracts" name="detail" element="q17:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ValidarRfcReq">
+    <wsdl:part name="parameters" element="tns:ValidarRfcReq" />
+  </wsdl:message>
+  <wsdl:message name="ValidarRfcRes">
+    <wsdl:part name="parameters" element="tns:ValidarRfcRes" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_ValidarRFC_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q18="http://schemas.datacontract.org/2004/07/ACE.Framework.CrossCutting.Exceptions.FaultContracts" name="detail" element="q18:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ValidaPolizaReq">
+    <wsdl:part name="parameters" element="tns:ValidaPolizaReq" />
+  </wsdl:message>
+  <wsdl:message name="ValidaPolizaRes">
+    <wsdl:part name="parameters" element="tns:ValidaPolizaRes" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_ValidaPoliza_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q19="http://schemas.datacontract.org/2004/07/ACE.Framework.CrossCutting.Exceptions.FaultContracts" name="detail" element="q19:ServiceError" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDocRelacionadoFacturaReq">
+    <wsdl:part name="parameters" element="tns:ObtenerDocRelacionadoFacturaReq" />
+  </wsdl:message>
+  <wsdl:message name="ObtenerDocRelacionadoFacturaRes">
+    <wsdl:part name="parameters" element="tns:ObtenerDocRelacionadoFacturaRes" />
+  </wsdl:message>
+  <wsdl:message name="FacturacionElectronicaService_ObtenerFacturaDetalle_ServiceErrorFault_FaultMessage">
+    <wsdl:part xmlns:q20="http://schemas.datacontract.org/2004/07/ACE.Framework.CrossCutting.Exceptions.FaultContracts" name="detail" element="q20:ServiceError" />
+  </wsdl:message>
+  <wsdl:portType msc:usingSession="false" name="FacturacionElectronicaService">
+    <wsdl:operation name="GenerarFactura">
+      <wsdl:input wsaw:Action="GenerarFactura" name="GenerarFacturaReq" message="tns:GenerarFacturaReq" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FacturacionElectronicaService/GenerarFacturaResponse" name="GenerarFacturaRes" message="tns:GenerarFacturaRes" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FacturacionElectronicaService/GenerarFacturaServiceErrorFault" name="ServiceErrorFault" message="tns:FacturacionElectronicaService_GenerarFactura_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaFacturaPorPoliza">
+      <wsdl:input wsaw:Action="ConsultaFacturaPorPoliza" name="ConsultarFacturaPorPolizaReq" message="tns:ConsultarFacturaPorPolizaReq" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ConsultaFacturaPorPolizaResponse" name="ConsultarFacturaPorPolizaRes" message="tns:ConsultarFacturaPorPolizaRes" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ConsultaFacturaPorPolizaServiceErrorFault" name="ServiceErrorFault" message="tns:FacturacionElectronicaService_ConsultaFacturaPorPoliza_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarFacturas">
+      <wsdl:input wsaw:Action="ConsultarFacturas" name="ConsultarFacturasReq" message="tns:ConsultarFacturasReq" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ConsultarFacturasResponse" name="ConsultarFacturasRes" message="tns:ConsultarFacturasRes" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ConsultarFacturasServiceErrorFault" name="ServiceErrorFault" message="tns:FacturacionElectronicaService_ConsultarFacturas_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelarFactura">
+      <wsdl:input wsaw:Action="CancelarFactura" name="CancelarFacturaReq" message="tns:CancelarFacturaReq" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FacturacionElectronicaService/CancelarFacturaResponse" name="CancelarFacturaRes" message="tns:CancelarFacturaRes" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FacturacionElectronicaService/CancelarFacturaServiceErrorFault" name="ServiceErrorFault" message="tns:FacturacionElectronicaService_CancelarFactura_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarCompanias">
+      <wsdl:input wsaw:Action="ListarCompanias" message="tns:FacturacionElectronicaService_ListarCompanias_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ListarCompaniasResponse" message="tns:FacturacionElectronicaService_ListarCompanias_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ListarCompaniasServiceErrorFault" name="ServiceErrorFault" message="tns:FacturacionElectronicaService_ListarCompanias_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarEquivalenciasSistemas">
+      <wsdl:input wsaw:Action="ListarEquivalenciasSistemas" message="tns:FacturacionElectronicaService_ListarEquivalenciasSistemas_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ListarEquivalenciasSistemasResponse" message="tns:FacturacionElectronicaService_ListarEquivalenciasSistemas_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ListarEquivalenciasSistemasServiceErrorFault" name="ServiceErrorFault" message="tns:FacturacionElectronicaService_ListarEquivalenciasSistemas_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerFacturaGenerica">
+      <wsdl:input wsaw:Action="ObtenerFacturaGenerica" name="ListarFacturaGenericaReq" message="tns:ListarFacturaGenericaReq" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ObtenerFacturaGenericaResponse" name="ListarFacturaGenericaRes" message="tns:ListarFacturaGenericaRes" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ObtenerFacturaGenericaServiceErrorFault" name="ServiceErrorFault" message="tns:FacturacionElectronicaService_ObtenerFacturaGenerica_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerFactura">
+      <wsdl:input wsaw:Action="ListaFacturas" name="ObtenerFacturaReq" message="tns:ObtenerFacturaReq" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ObtenerFacturaResponse" name="ObtenerFacturaRes" message="tns:ObtenerFacturaRes" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ObtenerFacturaServiceErrorFault" name="ServiceErrorFault" message="tns:FacturacionElectronicaService_ObtenerFactura_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDetalleFactura">
+      <wsdl:input wsaw:Action="ListaDetallesFacturas" name="ObtenerDetalleFacturaReq" message="tns:ObtenerDetalleFacturaReq" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ObtenerDetalleFacturaResponse" name="ObtenerDetalleFacturaRes" message="tns:ObtenerDetalleFacturaRes" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ObtenerDetalleFacturaServiceErrorFault" name="ServiceErrorFault" message="tns:FacturacionElectronicaService_ObtenerDetalleFactura_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarFactura">
+      <wsdl:input wsaw:Action="InformacionFactura" name="ConsultarFacturaReq" message="tns:ConsultarFacturaReq" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ConsultarFacturaResponse" name="ConsultarFacturaRes" message="tns:ConsultarFacturaRes" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ConsultarFacturaServiceErrorFault" name="ServiceErrorFault" message="tns:FacturacionElectronicaService_ConsultarFactura_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarFormaPago">
+      <wsdl:input wsaw:Action="ListarFormaPago" name="ListarFormaPagoReq" message="tns:ListarFormaPagoReq" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ListarFormaPagoResponse" name="ListarFormaPagoRes" message="tns:ListarFormaPagoRes" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ListarFormaPagoServiceErrorFault" name="ServiceErrorFault" message="tns:FacturacionElectronicaService_ListarFormaPago_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarMetodoPago">
+      <wsdl:input wsaw:Action="ListarMetodoPago" name="ListarMetodoPagoReq" message="tns:ListarMetodoPagoReq" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ListarMetodoPagoResponse" name="ListarMetodoPagoRes" message="tns:ListarMetodoPagoRes" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ListarMetodoPagoServiceErrorFault" name="ServiceErrorFault" message="tns:FacturacionElectronicaService_ListarMetodoPago_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ListarUsoCFDI">
+      <wsdl:input wsaw:Action="ListarUsoCFDI" name="ListarUsoCFDIReq" message="tns:ListarUsoCFDIReq" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ListarUsoCFDIResponse" name="ListarUsoCFDIRes" message="tns:ListarUsoCFDIRes" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ListarUsoCFDIServiceErrorFault" name="ServiceErrorFault" message="tns:FacturacionElectronicaService_ListarUsoCFDI_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarTipoFactura">
+      <wsdl:input wsaw:Action="ConsultarTipoFactura" name="ConsultarTipoFacturaReq" message="tns:ConsultarTipoFacturaReq" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ConsultarTipoFacturaResponse" name="ConsultarTipoFacturaRes" message="tns:ConsultarTipoFacturaRes" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ConsultarTipoFacturaServiceErrorFault" name="ServiceErrorFault" message="tns:FacturacionElectronicaService_ConsultarTipoFactura_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarDocumentosRelacionados">
+      <wsdl:input wsaw:Action="ActualizarDocumentosRelacionados" name="ActualizarDocumentosRelacionadosReq" message="tns:ActualizarDocumentosRelacionadosReq" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ActualizarDocumentosRelacionadosResponse" name="ActualizarDocumentosRelacionadosRes" message="tns:ActualizarDocumentosRelacionadosRes" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ActualizarDocumentosRelacionadosServiceErrorFault" name="ServiceErrorFault" message="tns:FacturacionElectronicaService_ActualizarDocumentosRelacionados_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRfcReceptor">
+      <wsdl:input wsaw:Action="ObtenerRfcReceptor" name="ObtenerRfcReceptorReq" message="tns:ObtenerRfcReceptorReq" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ObtenerRfcReceptorResponse" name="ObtenerRfcReceptorRes" message="tns:ObtenerRfcReceptorRes" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ObtenerRfcReceptorServiceErrorFault" name="ServiceErrorFault" message="tns:FacturacionElectronicaService_ObtenerRfcReceptor_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDescripcionClaveProdServ">
+      <wsdl:input wsaw:Action="ObtenerDescripcionClaveProdServ" name="ObtenerDescripcionClaveProdServReq" message="tns:ObtenerDescripcionClaveProdServReq" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ObtenerDescripcionClaveProdServResponse" name="ObtenerDescripcionClaveProdServRes" message="tns:ObtenerDescripcionClaveProdServRes" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ObtenerDescripcionClaveProdServServiceErrorFault" name="ServiceErrorFault" message="tns:FacturacionElectronicaService_ObtenerDescripcionClaveProdServ_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidarRFC">
+      <wsdl:input wsaw:Action="ValidarRFC" name="ValidarRfcReq" message="tns:ValidarRfcReq" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ValidarRFCResponse" name="ValidarRfcRes" message="tns:ValidarRfcRes" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ValidarRFCServiceErrorFault" name="ServiceErrorFault" message="tns:FacturacionElectronicaService_ValidarRFC_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidaPoliza">
+      <wsdl:input wsaw:Action="ValidaPoliza" name="ValidaPolizaReq" message="tns:ValidaPolizaReq" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ValidaPolizaResponse" name="ValidaPolizaRes" message="tns:ValidaPolizaRes" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ValidaPolizaServiceErrorFault" name="ServiceErrorFault" message="tns:FacturacionElectronicaService_ValidaPoliza_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerFacturaDetalle">
+      <wsdl:input wsaw:Action="ListaDocRelacionadosFacturas" name="ObtenerDocRelacionadoFacturaReq" message="tns:ObtenerDocRelacionadoFacturaReq" />
+      <wsdl:output wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ObtenerFacturaDetalleResponse" name="ObtenerDocRelacionadoFacturaRes" message="tns:ObtenerDocRelacionadoFacturaRes" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/FacturacionElectronicaService/ObtenerFacturaDetalleServiceErrorFault" name="ServiceErrorFault" message="tns:FacturacionElectronicaService_ObtenerFacturaDetalle_ServiceErrorFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_FacturacionElectronicaService" type="tns:FacturacionElectronicaService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GenerarFactura">
+      <soap:operation soapAction="GenerarFactura" style="document" />
+      <wsdl:input name="GenerarFacturaReq">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GenerarFacturaRes">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceErrorFault">
+        <soap:fault use="literal" name="ServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultaFacturaPorPoliza">
+      <soap:operation soapAction="ConsultaFacturaPorPoliza" style="document" />
+      <wsdl:input name="ConsultarFacturaPorPolizaReq">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ConsultarFacturaPorPolizaRes">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceErrorFault">
+        <soap:fault use="literal" name="ServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarFacturas">
+      <soap:operation soapAction="ConsultarFacturas" style="document" />
+      <wsdl:input name="ConsultarFacturasReq">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ConsultarFacturasRes">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceErrorFault">
+        <soap:fault use="literal" name="ServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CancelarFactura">
+      <soap:operation soapAction="CancelarFactura" style="document" />
+      <wsdl:input name="CancelarFacturaReq">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CancelarFacturaRes">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceErrorFault">
+        <soap:fault use="literal" name="ServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ListarCompanias">
+      <soap:operation soapAction="ListarCompanias" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceErrorFault">
+        <soap:fault use="literal" name="ServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ListarEquivalenciasSistemas">
+      <soap:operation soapAction="ListarEquivalenciasSistemas" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceErrorFault">
+        <soap:fault use="literal" name="ServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerFacturaGenerica">
+      <soap:operation soapAction="ObtenerFacturaGenerica" style="document" />
+      <wsdl:input name="ListarFacturaGenericaReq">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ListarFacturaGenericaRes">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceErrorFault">
+        <soap:fault use="literal" name="ServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerFactura">
+      <soap:operation soapAction="ListaFacturas" style="document" />
+      <wsdl:input name="ObtenerFacturaReq">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ObtenerFacturaRes">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceErrorFault">
+        <soap:fault use="literal" name="ServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDetalleFactura">
+      <soap:operation soapAction="ListaDetallesFacturas" style="document" />
+      <wsdl:input name="ObtenerDetalleFacturaReq">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ObtenerDetalleFacturaRes">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceErrorFault">
+        <soap:fault use="literal" name="ServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarFactura">
+      <soap:operation soapAction="InformacionFactura" style="document" />
+      <wsdl:input name="ConsultarFacturaReq">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ConsultarFacturaRes">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceErrorFault">
+        <soap:fault use="literal" name="ServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ListarFormaPago">
+      <soap:operation soapAction="ListarFormaPago" style="document" />
+      <wsdl:input name="ListarFormaPagoReq">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ListarFormaPagoRes">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceErrorFault">
+        <soap:fault use="literal" name="ServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ListarMetodoPago">
+      <soap:operation soapAction="ListarMetodoPago" style="document" />
+      <wsdl:input name="ListarMetodoPagoReq">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ListarMetodoPagoRes">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceErrorFault">
+        <soap:fault use="literal" name="ServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ListarUsoCFDI">
+      <soap:operation soapAction="ListarUsoCFDI" style="document" />
+      <wsdl:input name="ListarUsoCFDIReq">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ListarUsoCFDIRes">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceErrorFault">
+        <soap:fault use="literal" name="ServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ConsultarTipoFactura">
+      <soap:operation soapAction="ConsultarTipoFactura" style="document" />
+      <wsdl:input name="ConsultarTipoFacturaReq">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ConsultarTipoFacturaRes">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceErrorFault">
+        <soap:fault use="literal" name="ServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarDocumentosRelacionados">
+      <soap:operation soapAction="ActualizarDocumentosRelacionados" style="document" />
+      <wsdl:input name="ActualizarDocumentosRelacionadosReq">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ActualizarDocumentosRelacionadosRes">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceErrorFault">
+        <soap:fault use="literal" name="ServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerRfcReceptor">
+      <soap:operation soapAction="ObtenerRfcReceptor" style="document" />
+      <wsdl:input name="ObtenerRfcReceptorReq">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ObtenerRfcReceptorRes">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceErrorFault">
+        <soap:fault use="literal" name="ServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerDescripcionClaveProdServ">
+      <soap:operation soapAction="ObtenerDescripcionClaveProdServ" style="document" />
+      <wsdl:input name="ObtenerDescripcionClaveProdServReq">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ObtenerDescripcionClaveProdServRes">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceErrorFault">
+        <soap:fault use="literal" name="ServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValidarRFC">
+      <soap:operation soapAction="ValidarRFC" style="document" />
+      <wsdl:input name="ValidarRfcReq">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ValidarRfcRes">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceErrorFault">
+        <soap:fault use="literal" name="ServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValidaPoliza">
+      <soap:operation soapAction="ValidaPoliza" style="document" />
+      <wsdl:input name="ValidaPolizaReq">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ValidaPolizaRes">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceErrorFault">
+        <soap:fault use="literal" name="ServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ObtenerFacturaDetalle">
+      <soap:operation soapAction="ListaDocRelacionadosFacturas" style="document" />
+      <wsdl:input name="ObtenerDocRelacionadoFacturaReq">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ObtenerDocRelacionadoFacturaRes">
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceErrorFault">
+        <soap:fault use="literal" name="ServiceErrorFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FacturacionElectronicaService">
+    <wsdl:port name="BasicHttpBinding_FacturacionElectronicaService" binding="tns:BasicHttpBinding_FacturacionElectronicaService">
+      <soap:address location="http://172.25.106.110/Chubb.Facturacion/FacturacionElectronicaService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

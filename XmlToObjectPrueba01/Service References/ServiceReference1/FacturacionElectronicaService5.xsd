@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://172.25.106.110/Chubb.Facturacion/FacturacionElectronicaService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.DataContracts" />
+  <xs:import schemaLocation="http://172.25.106.110/Chubb.Facturacion/FacturacionElectronicaService.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://172.25.106.110/Chubb.Facturacion/FacturacionElectronicaService.svc?xsd=xsd6" namespace="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.MessageContracts" />
+  <xs:element name="GenerarFacturaReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Negocio" type="xs:int" />
+        <xs:element minOccurs="0" name="Sistema" type="xs:int" />
+        <xs:element minOccurs="0" name="Operacion" type="xs:int" />
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.DataContracts" minOccurs="0" name="Emails" nillable="true" type="q1:ArrayOfEmailDestino" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.DataContracts" minOccurs="0" name="Comprobante" nillable="true" type="q2:Comprobante" />
+        <xs:element minOccurs="0" name="ValidaReintento" nillable="true" type="xs:boolean" />
+        <xs:element minOccurs="0" name="GenerarArchivos" nillable="true" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerarFacturaRes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ArchivoPdf" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="ArchivoXml" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="ArchivoZip" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="FacturaId" type="xs:int" />
+        <xs:element minOccurs="0" name="FacturaPadreId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarFacturaPorPolizaReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NegocioId" type="xs:int" />
+        <xs:element minOccurs="0" name="SistemaId" type="xs:int" />
+        <xs:element minOccurs="0" name="ClaveId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="PolizaId" type="xs:int" />
+        <xs:element minOccurs="0" name="Poliza" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RamoId" type="xs:int" />
+        <xs:element minOccurs="0" name="Serie" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Folio" type="xs:int" />
+        <xs:element minOccurs="0" name="EndosoId" type="xs:int" />
+        <xs:element minOccurs="0" name="InicioVigencia" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarFacturaPorPolizaRes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ArchivoPdf" nillable="true" type="q3:ArrayOfbase64Binary" />
+        <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ArchivoXml" nillable="true" type="q4:ArrayOfbase64Binary" />
+        <xs:element xmlns:q5="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ArchivoZip" nillable="true" type="q5:ArrayOfbase64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarFacturasReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="formatoRespuesta" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Negocio" type="xs:int" />
+        <xs:element minOccurs="0" name="Sistema" type="xs:int" />
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.DataContracts" minOccurs="0" name="detalleFactura" nillable="true" type="q6:DetalleFactura" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarFacturasRes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ArchivoPdf" nillable="true" type="xs:base64Binary" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ArchivoXml" nillable="true" type="q7:ArrayOfbase64Binary" />
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ArchivoZip" nillable="true" type="q8:ArrayOfbase64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelarFacturaReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Negocio" type="xs:int" />
+        <xs:element minOccurs="0" name="Sistema" type="xs:int" />
+        <xs:element minOccurs="0" name="Operacion" type="xs:int" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.DataContracts" minOccurs="0" name="Emails" nillable="true" type="q9:ArrayOfEmailDestino" />
+        <xs:element minOccurs="0" name="UUID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CancelarFacturaRes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AcuseXML" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="ArchivoPdf" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="Error" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Resultado" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarCompanias">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.MessageContracts" minOccurs="0" name="request" nillable="true" type="q10:ListarCompaniasReq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarCompaniasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.MessageContracts" minOccurs="0" name="ListarCompaniasResult" nillable="true" type="q11:ListarCompaniasRes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarEquivalenciasSistemas">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.MessageContracts" minOccurs="0" name="request" nillable="true" type="q12:ListarEquivalenciasReq" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarEquivalenciasSistemasResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.MessageContracts" minOccurs="0" name="ListarEquivalenciasSistemasResult" nillable="true" type="q13:ListarEquivalenciasRes" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarFacturaGenericaReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="tipoSistema" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarFacturaGenericaRes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.DataContracts" minOccurs="0" name="FacturaGenericaa" nillable="true" type="q14:ArrayOfFacturaGenerica" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerFacturaReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TipoBusqueda" type="xs:int" />
+        <xs:element minOccurs="0" name="BuscarPor" type="xs:int" />
+        <xs:element minOccurs="0" name="TextoCombinado" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Poliza" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RFC" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Endoso" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Convenio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Inciso" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SiniestroId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="BienFacturadoId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EstimacionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OrdenPagoId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TipoIngresoId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AgrupacionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FianzaId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="InclusionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NombreReceptor" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FechaVigencia" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Recibo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Anosuscripcion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Ramo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Subramo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Skip" type="xs:int" />
+        <xs:element minOccurs="0" name="ListaDeSistemasID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RegistrosPorPagina" type="xs:int" />
+        <xs:element minOccurs="0" name="BusquedaSistema" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CollectorCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EsCancelada" type="xs:int" />
+        <xs:element minOccurs="0" name="TipoEndoso" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TipoComprobanteId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerFacturaRes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.DataContracts" minOccurs="0" name="ListaGeneral" nillable="true" type="q15:ArrayOfFactura" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerDetalleFacturaReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UUID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerDetalleFacturaRes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.DataContracts" minOccurs="0" name="ListaDetalleGeneral" nillable="true" type="q16:ArrayOfFactura" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarFacturaReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Negocio" type="xs:int" />
+        <xs:element minOccurs="0" name="Sistema" type="xs:int" />
+        <xs:element minOccurs="0" name="Operacion" type="xs:int" />
+        <xs:element minOccurs="0" name="UUID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TipoConsulta" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarFacturaRes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ArchivoPdf" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="ArchivoXml" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="ArchivoZip" nillable="true" type="xs:base64Binary" />
+        <xs:element minOccurs="0" name="FacturaPadreId" type="xs:int" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.DataContracts" minOccurs="0" name="InformacionFactura" nillable="true" type="q17:ArrayOfFacturaInformacion" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarFormaPagoReq">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarFormaPagoRes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.DataContracts" minOccurs="0" name="FormaPagos" nillable="true" type="q18:ArrayOfFormaPago" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarMetodoPagoReq">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarMetodoPagoRes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.DataContracts" minOccurs="0" name="MetodoPagos" nillable="true" type="q19:ArrayOfMetodoPago" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarUsoCFDIReq">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ListarUsoCFDIRes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.DataContracts" minOccurs="0" name="UsoCFDIs" nillable="true" type="q20:ArrayOfUsoCFDI" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarTipoFacturaReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FacturasUUID" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ConsultarTipoFacturaRes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.DataContracts" minOccurs="0" name="ListaConsultarTipoFactura" nillable="true" type="q21:ArrayOfFactura" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActualizarDocumentosRelacionadosReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="FacturaIdSustituida" type="xs:int" />
+        <xs:element minOccurs="0" name="FacturaIdGenerada" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ActualizarDocumentosRelacionadosRes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Error" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Message" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerRfcReceptorReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="EsPago" type="xs:boolean" />
+        <xs:element minOccurs="0" name="Folio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NegocioId" type="xs:int" />
+        <xs:element minOccurs="0" name="OperacionId" type="xs:int" />
+        <xs:element minOccurs="0" name="RFCCompSol" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Serie" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SistemaId" type="xs:int" />
+        <xs:element minOccurs="0" name="TComprobanteSol" nillable="true" type="xs:string" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.DataContracts" minOccurs="0" name="detFact" nillable="true" type="q22:ArrayOfDetalleFactura" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerRfcReceptorRes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.DataContracts" minOccurs="0" name="rfcReceptor" nillable="true" type="q23:ArrayOfRfcReceptor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerDescripcionClaveProdServReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClaveProdServ" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerDescripcionClaveProdServRes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.DataContracts" minOccurs="0" name="DescripcionClaveProdServ" nillable="true" type="q24:DescripcionClaveProdServ" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarRfcReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Negocio" type="xs:int" />
+        <xs:element minOccurs="0" name="Sistema" type="xs:int" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.DataContracts" minOccurs="0" name="rfcs" nillable="true" type="q25:ArrayOfRfcIdentifier" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidarRfcRes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.DataContracts" minOccurs="0" name="ListaRFCs" nillable="true" type="q26:ArrayOfRfcRespuesta" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidaPolizaReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ClaveId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EndosoId" type="xs:int" />
+        <xs:element minOccurs="0" name="PolizaId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidaPolizaRes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="ValidaDistribucionFacturante" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerDocRelacionadoFacturaReq">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="UUID" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TextoCombinado" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Poliza" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="RFC" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Endoso" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Convenio" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Inciso" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SiniestroId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="BienFacturadoId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EstimacionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="OrdenPagoId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TipoIngresoId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AgrupacionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FianzaId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="InclusionId" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NombreReceptor" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FechaVigencia" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Recibo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Anosuscripcion" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Ramo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Subramo" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CollectorCode" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="EsCancelada" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Skip" type="xs:int" />
+        <xs:element minOccurs="0" name="RegistrosPorPagina" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ObtenerDocRelacionadoFacturaRes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/Chubb.Facturacion.DataContracts" minOccurs="0" name="ListaGeneral" nillable="true" type="q27:ArrayOfFactura" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
